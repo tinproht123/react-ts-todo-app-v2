@@ -11,4 +11,6 @@ Todo App v2 using:
 + Typescript
 + Redux + Redux Toolkit
 + Sass
+
+
 Created by Khanh Tung 5/4/2022
