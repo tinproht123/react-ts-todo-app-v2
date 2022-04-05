@@ -22,8 +22,8 @@ const Footer = (props: Props) => {
     active,
     setActive,
   } = props;
-  
-  const list = useAppSelector((state) => state.todo.list);
+
+  const state = useAppSelector((state) => state.todo);
 
   return (
     <footer className="footer">
@@ -44,9 +44,21 @@ const Footer = (props: Props) => {
         ></i>
       </div>
       <div className="footer-right">
-        <p>
-          {list.length} {list.length > 1 ? 'items' : 'item'} left
-        </p>
+        {active === 0 ? (
+          <p>
+            {state.list.length} {state.list.length > 1 ? 'items' : 'item'} left
+          </p>
+        ) : active === 1 ? (
+          <p>
+            {state.activeList.length}{' '}
+            {state.activeList.length > 1 ? 'items' : 'item'} left
+          </p>
+        ) : (
+          <p>
+            {state.completedList.length}{' '}
+            {state.completedList.length > 1 ? 'items' : 'item'} left
+          </p>
+        )}
         <div className="choice-btns">
           {choiceBtns.map((btn, index) => (
             <button
